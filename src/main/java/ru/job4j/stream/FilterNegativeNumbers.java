@@ -9,7 +9,7 @@ public class FilterNegativeNumbers {
         List<Integer> numbers = Arrays.asList(1, 2, -3, 2, -4, -1, 2);
         List<Integer> positive = numbers.stream().filter(
                 number -> number > 0
-        ).toList();
+        ).distinct().toList();
         positive.forEach(System.out::println);
     }
 }
