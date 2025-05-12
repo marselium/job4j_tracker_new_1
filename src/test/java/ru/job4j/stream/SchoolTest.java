@@ -3,6 +3,7 @@ package ru.job4j.stream;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -21,9 +22,10 @@ public class SchoolTest {
         School school = new School();
         Predicate<Student> predicate = student -> student.getScore() >= 70;
         List<Student> result = school.collect(students, predicate);
-        List<Student> expected = new ArrayList<>();
-        expected.add(new Student(70, "Surname7"));
-        expected.add(new Student(90, "Surname9"));
+        List<Student> expected = Arrays.asList(
+            (new Student(70, "Surname7")),
+            (new Student(90, "Surname9"))
+        );
         assertThat(result).isEqualTo(expected);
     }
 
